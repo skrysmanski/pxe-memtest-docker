@@ -1,0 +1,8 @@
+default memtest86
+prompt 1
+timeout 15
+
+label memtest86
+  menu label Memtest86+ 5.01
+  kernel /memtest/memtest86+-5.01
+
