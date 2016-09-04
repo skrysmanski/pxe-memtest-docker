@@ -2,14 +2,14 @@
 
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y dnsmasq pxelinux syslinux-common
+RUN apt-get update && apt-get install -y --no-install-recommends dnsmasq pxelinux syslinux-common moreutils
 
 COPY files /
 
 RUN ln -s /usr/lib/syslinux/modules/bios/ldlinux.c32 /tftpboot/ \
  && ln -s /usr/lib/PXELINUX/pxelinux.0 /tftpboot/
 
-ENV PXE_DHCP_SUBNET 192.168.178.0
+ENV PXE_INTERFACE eth0
 
 # All ports are UDP ports
 EXPOSE 67 69 4011

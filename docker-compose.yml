@@ -3,7 +3,7 @@ services:
   pxeboot:
     build: .
     environment:
-      - PXE_DHCP_SUBNET=192.168.178.0
+      - PXE_INTERFACE=eth0
     ports:
       - "67:67/udp"
       - "69:69/udp"

@@ -1,5 +1,8 @@
-#!/bin/bash
-set -e
+#!/bin/sh -e
 
-exec /usr/sbin/dnsmasq -d --dhcp-range=$PXE_DHCP_SUBNET,proxy
+PXE_DHCP_SUBNET="$(ifdata -pN $PXE_INTERFACE)"
+
+exec /usr/sbin/dnsmasq -d \
+  --interface=$PXE_INTERFACE \
+  --dhcp-range=$PXE_DHCP_SUBNET,proxy
 
