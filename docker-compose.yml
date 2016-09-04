@@ -1,6 +1,6 @@
 version: '2'
 services:
-  pxeboot:
+  pxe-memtest:
     build: .
     environment:
       - PXE_INTERFACE=eth0
